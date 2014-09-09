@@ -4,5 +4,8 @@
     <string name="app_name">Cards of Evil Intent</string>
     <string name="action_settings">Settings</string>
     <string name="name">Name: </string>
+    <string name="name_hint">Username</string>
+    <string name="host">Host Game</string>
+    <string name="join">Join Game</string>
 
 </resources>
