@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
-
+import android.widget.Button;
 
 
 public class Login extends Activity {
@@ -43,6 +43,7 @@ public class Login extends Activity {
         if (id == R.id.action_settings) {
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -58,6 +59,9 @@ public class Login extends Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_login, container, false);
+            Button host_button = new Button(this.getActivity());
+            Button join_button = new Button(this.getActivity());
+
             return rootView;
         }
     }
