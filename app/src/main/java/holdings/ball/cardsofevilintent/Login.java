@@ -2,6 +2,7 @@ package holdings.ball.cardsofevilintent;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 
 public class Login extends Activity {
@@ -54,30 +56,54 @@ public class Login extends Activity {
         private Button join_button;
 
         public SplashFragment() {
+
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_splash, container, false);
-            host_button = new Button(this.getActivity());
+            host_button = (Button) rootView.findViewById(R.id.host_button);
             host_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
+                    getFragmentManager().beginTransaction()
+                            .replace(R.id.container, new HostFragment(), "HostFragment")
+                            .commit();
                 }
             });
-            join_button = new Button(this.getActivity());
+            join_button = (Button) rootView.findViewById(R.id.join_button);
             join_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    getFragmentManager().beginTransaction()
+                            .replace(R.id.container, new JoinFragment(), "JoinFragment")
+                            .commit();
                 }
             });
-
             return rootView;
         }
+    }
 
-
+    public static class JoinFragment extends Fragment {
+        public JoinFragment() {
+        }
+            @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                     Bundle savedInstanceState) {
+           View rootView = inflater.inflate(R.layout.fragment_join, container, false);
+           return rootView;
+        }
+    }
+    public static class HostFragment extends Fragment {
+        public HostFragment() {
+        }
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_host, container, false);
+            return rootView;
+        }
     }
 }
