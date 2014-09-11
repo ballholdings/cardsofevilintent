@@ -12,7 +12,7 @@
     <string name="server_password_hint">Optional</string>
     <string name="server_name_hint">Server name</string>
     <string name="optional">Optional</string>
-    <string name="question">Are you playing?</string>
+    <string name="playing">Are you playing?</string>
     <string name="choose_expansions">Choose Expansions</string>
     <string name="create_game">Create Game</string>
     <string name="join_game">Join Game</string>
