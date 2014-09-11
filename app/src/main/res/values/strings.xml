@@ -16,5 +16,6 @@
     <string name="choose_expansions">Choose Expansions</string>
     <string name="create_game">Create Game</string>
     <string name="join_game">Join Game</string>
+    <string name="black_card">This is a _______ black card.</string>
 
 </resources>
