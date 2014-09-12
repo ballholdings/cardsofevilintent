@@ -26,6 +26,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:name="holdings.ball.cardsofevilintent.NavigationDrawerFragment"
-        tools:layout="@layout/fragment_game_activity" />
+        tools:layout="@layout/fragment_navigation_drawer" />
 
 </android.support.v4.widget.DrawerLayout>
