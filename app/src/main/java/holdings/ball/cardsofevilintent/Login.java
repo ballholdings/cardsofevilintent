@@ -100,6 +100,7 @@ public class Login extends Activity {
            View rootView = inflater.inflate(R.layout.fragment_join, container, false);
            return rootView;
         }
+
     }
     public static class HostFragment extends Fragment {
 
@@ -113,19 +114,18 @@ public class Login extends Activity {
             View rootView = inflater.inflate(R.layout.fragment_host, container, false);
 
             playing_toggle = (Switch) rootView.findViewById(R.id.switch_playing);
-
+            playing_toggle.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    if(playing_toggle.isChecked()){
+                        playing_toggle.setChecked(false);
+                    }
+                    else{
+                        playing_toggle.setChecked(true);
+                    }
+                }
+            });
             return rootView;
         }
 
-        public void onToggleClicked(View view){
-            // Is the toggle on?
-            boolean on = ((ToggleButton) view).isChecked();
-
-            if (on) {
-                host_playing = false;
-            } else {
-                host_playing = true;
-            }
-        }
     }
 }
