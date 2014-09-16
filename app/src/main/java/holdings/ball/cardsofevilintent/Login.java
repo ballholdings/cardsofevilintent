@@ -11,9 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Switch;
+import android.widget.ToggleButton;
 
 
 public class Login extends Activity {
+
+    public static boolean host_playing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,7 @@ public class Login extends Activity {
                     .add(R.id.container, new SplashFragment())
                     .commit();
         }
+        host_playing = false;
     }
 
 
@@ -97,13 +102,30 @@ public class Login extends Activity {
         }
     }
     public static class HostFragment extends Fragment {
+
+        Switch playing_toggle;
+
         public HostFragment() {
         }
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_host, container, false);
+
+            playing_toggle = (Switch) rootView.findViewById(R.id.switch_playing);
+
             return rootView;
+        }
+
+        public void onToggleClicked(View view){
+            // Is the toggle on?
+            boolean on = ((ToggleButton) view).isChecked();
+
+            if (on) {
+                host_playing = false;
+            } else {
+                host_playing = true;
+            }
         }
     }
 }
